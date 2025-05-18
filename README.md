@@ -1,147 +1,105 @@
-<div align="center">
-<h1>DriveMate AI</h1>
+<h1>Drivemate AI</h1>
 
 <p>
-<b>DriveMate AI is a full-stack autonomous driving platform.</b><br>
-Trained on 50,000+ scenarios to deliver real-time lane keeping, obstacle avoidance, and path planning.
+  <b>openpilot is an operating system for robotics.</b>
+  <br>
+  Currently, it upgrades the driver assistance system in 275+ supported cars.
 </p>
 
 <h3>
-   <a href="https://github.com/abrarahmad1510/drivemate-ai/docs">Docs</a> ·
-   <a href="https://github.com/abrarahmad1510/drivemate-ai/blob/main/ROADMAP.md">Roadmap</a> ·
-   <a href="https://github.com/abrarahmad1510/drivemate-ai/blob/main/CONTRIBUTING.md">Contribute</a> ·
-   <a href="https://discord.gg/yourserver">Community</a> ·
-   <a href="https://github.com/abrarahmad1510/drivemate-ai/releases">Releases</a>
- </h3>
+  <a href="https://docs.comma.ai">Docs</a>
+  <span> · </span>
+  <a href="https://docs.comma.ai/contributing/roadmap/">Roadmap</a>
+  <span> · </span>
+  <a href="https://github.com/commaai/openpilot/blob/master/docs/CONTRIBUTING.md">Contribute</a>
+  <span> · </span>
+  <a href="https://discord.comma.ai">Community</a>
+  <span> · </span>
+  <a href="https://comma.ai/shop">Try it on a comma 3X</a>
+</h3>
 
- ![CI Tests](https://github.com/abrarahmad1510/drivemate-ai/actions/workflows/ci.yaml/badge.svg)  
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
- [![Follow @AbrarAhmad1510](https://img.shields.io/twitter/follow/AbrarAhmad1510?style=social)](https://twitter.com/AbrarAhmad1510)
+Quick start: bash <(curl -fsSL openpilot.comma.ai)
 
- ---
+![openpilot tests](https://github.com/commaai/openpilot/actions/workflows/selfdrive_tests.yaml/badge.svg)
+[![codecov](https://codecov.io/gh/commaai/openpilot/branch/master/graph/badge.svg)](https://codecov.io/gh/commaai/openpilot)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![X Follow](https://img.shields.io/twitter/follow/comma_ai)](https://x.com/comma_ai)
+[![Discord](https://img.shields.io/discord/469524606043160576)](https://discord.comma.ai)
 
- ## Quick Start
+</div>
 
- ```bash
- # Linux / macOS:
- bash <(curl -fsSL https://raw.githubusercontent.com/abrarahmad1510/drivemate-ai/main/install.sh)
+<table>
+  <tr>
+    <td><a href="https://youtu.be/NmBfgOanCyk" title="Video By Greer Viau"><img src="https://github.com/commaai/openpilot/assets/8762862/2f7112ae-f748-4f39-b617-fabd689c3772"></a></td>
+    <td><a href="https://youtu.be/VHKyqZ7t8Gw" title="Video By Logan LeGrand"><img src="https://github.com/commaai/openpilot/assets/8762862/92351544-2833-40d7-9e0b-7ef7ae37ec4c"></a></td>
+    <td><a href="https://youtu.be/SUIZYzxtMQs" title="A drive to Taco Bell"><img src="https://github.com/commaai/openpilot/assets/8762862/05ceefc5-2628-439c-a9b2-89ce77dc6f63"></a></td>
+  </tr>
+</table>
 
- # Windows (PowerShell):
- iwr -useb https://raw.githubusercontent.com/abrarahmad1510/drivemate-ai/main/install.ps1 | iex
- ```
 
- ---
+Using openpilot in a car
+------
 
- ## Table of Contents
+To use openpilot in a car, you need four things:
+1. **Supported Device:** a comma 3/3X, available at [comma.ai/shop](https://comma.ai/shop/comma-3x).
+2. **Software:** The setup procedure for the comma 3/3X allows users to enter a URL for custom software. Use the URL openpilot.comma.ai to install the release version.
+3. **Supported Car:** Ensure that you have one of [the 275+ supported cars](docs/CARS.md).
+4. **Car Harness:** You will also need a [car harness](https://comma.ai/shop/car-harness) to connect your comma 3/3X to your car.
 
- - [Overview](#overview)  
- - [Architecture](#architecture)  
- - [Technical Details](#technical-details)  
- - [Supported Vehicles](#supported-vehicles)  
- - [Branches](#branches)  
- - [Development](#development)  
- - [Safety & Testing](#safety--testing)  
- - [License](#license)  
+We have detailed instructions for [how to install the harness and device in a car](https://comma.ai/setup). Note that it's possible to run openpilot on [other hardware](https://blog.comma.ai/self-driving-car-for-free/), although it's not plug-and-play.
 
- ---
+### Branches
+| branch           | URL                                    | description                                                                         |
+|------------------|----------------------------------------|-------------------------------------------------------------------------------------|
+| release3         | openpilot.comma.ai                      | This is openpilot's release branch.                                                 |
+| release3-staging | openpilot-test.comma.ai                | This is the staging branch for releases. Use it to get new releases slightly early. |
+| nightly          | openpilot-nightly.comma.ai             | This is the bleeding edge development branch. Do not expect this to be stable.      |
+| nightly-dev      | installer.comma.ai/commaai/nightly-dev | Same as nightly, but includes experimental development features for some cars.      |
 
- ## Overview
+To start developing openpilot
+------
 
- DriveMate AI replaces manual driving tasks with intelligent automation:  
- - **Lane Keeping**: Deep CNN-based segmentation + Kalman smoothing  
- - **Obstacle Avoidance**: Real-time LIDAR fusion + RRT path planner  
- - **Adaptive Cruise**: PID + MPC controllers tuned for smooth torque transitions  
+openpilot is developed by [comma](https://comma.ai/) and by users like you. We welcome both pull requests and issues on [GitHub](http://github.com/commaai/openpilot).
 
- ---
+* Join the [community Discord](https://discord.comma.ai)
+* Check out [the contributing docs](docs/CONTRIBUTING.md)
+* Check out the [openpilot tools](tools/)
+* Read about the [development workflow](docs/WORKFLOW.md)
+* Code documentation lives at https://docs.comma.ai
+* Information about running openpilot lives on the [community wiki](https://github.com/commaai/openpilot/wiki)
 
- ## Architecture
+Want to get paid to work on openpilot? [comma is hiring](https://comma.ai/jobs#open-positions) and offers lots of [bounties](https://comma.ai/bounties) for external contributors.
 
- ```text
- ┌──────────────┐    ┌────────────┐    ┌───────────┐
- │  Sensors &   │ →  │  MCU Board │ →  │  Edge AI  │
- │  Cameras     │    │ (Arduino)  │    │(Jetson/NPU)│
- └──────────────┘    └────────────┘    └───────────┘
-                             ↓
-                        WebSocket
-                             ↓
- ┌────────────┐    ┌────────────┐    ┌───────────┐
- │  Backend   │ →  │  gRPC API  │ →  │ Frontend  │
- │ (FastAPI)  │    │ (C#/Go)    │    │ (React)   │
- └────────────┘    └────────────┘    └───────────┘
- ```
+Safety and Testing
+----
 
- ---
+* openpilot observes [ISO26262](https://en.wikipedia.org/wiki/ISO_26262) guidelines, see [SAFETY.md](docs/SAFETY.md) for more details.
+* openpilot has software-in-the-loop [tests](.github/workflows/selfdrive_tests.yaml) that run on every commit.
+* The code enforcing the safety model lives in panda and is written in C, see [code rigor](https://github.com/commaai/panda#code-rigor) for more details.
+* panda has software-in-the-loop [safety tests](https://github.com/commaai/panda/tree/master/tests/safety).
+* Internally, we have a hardware-in-the-loop Jenkins test suite that builds and unit tests the various processes.
+* panda has additional hardware-in-the-loop [tests](https://github.com/commaai/panda/blob/master/Jenkinsfile).
+* We run the latest openpilot in a testing closet containing 10 comma devices continuously replaying routes.
 
- ## Technical Details
+Licensing
+------
 
- - **Model Training**:  
-   - TensorFlow 2.x with custom LSTM & CNN layers  
-   - Hyperparameter tuning via Keras Tuner & Ray Tune  
- - **Inference**:  
-   - TensorRT-optimized models on NVIDIA Jetson  
-   - gRPC server exposes `Predict(path_image)` & `Control(state)`  
- - **Data Pipeline**:  
-   - Kafka for telemetry ingestion  
-   - Spark Streaming → Parquet archives in S3  
- - **Control Loop**:  
-   - 100 Hz sensor fusion → 50 Hz prediction → 20 Hz actuation  
+openpilot is released under the MIT license. Some parts of the software are released under other licenses as specified.
 
- ---
+Any user of this software shall indemnify and hold harmless Comma.ai, Inc. and its directors, officers, employees, agents, stockholders, affiliates, subcontractors and customers from and against all allegations, claims, actions, suits, demands, damages, liabilities, obligations, losses, settlements, judgments, costs and expenses (including without limitation attorneys’ fees and costs) which arise out of, relate to or result from any use of this software by user.
 
- ## Supported Vehicles
+**THIS IS ALPHA QUALITY SOFTWARE FOR RESEARCH PURPOSES ONLY. THIS IS NOT A PRODUCT.
+YOU ARE RESPONSIBLE FOR COMPLYING WITH LOCAL LAWS AND REGULATIONS.
+NO WARRANTY EXPRESSED OR IMPLIED.**
 
- | Make & Model       | Year Range | Sensors        |
- | ------------------ | ---------- | -------------- |
- | Toyota Camry       | 2018–2023  | Camera, LIDAR  |
- | Honda Accord       | 2017–2022  | Camera, Radar  |
- | Tesla Model 3 (w/) | 2020–2024  | Camera only    |
+User Data and comma Account
+------
 
- ---
+By default, openpilot uploads the driving data to our servers. You can also access your data through [comma connect](https://connect.comma.ai/). We use your data to train better models and improve openpilot for everyone.
 
- ## Branches
+openpilot is open source software: the user is free to disable data collection if they wish to do so.
 
- | Branch    | Description                              |
- | --------- | ---------------------------------------- |
- | `main`    | Stable release — best for production     |
- | `develop` | Latest features & integration tests      |
- | `ci-cd`   | CI/CD pipelines & infra-as-code          |
- | `nightly` | Nightly builds & performance tests       |
+openpilot logs the road-facing cameras, CAN, GPS, IMU, magnetometer, thermal sensors, crashes, and operating system logs.
+The driver-facing camera is only logged if you explicitly opt-in in settings. The microphone is not recorded.
 
- ---
-
- ## Development
-
- ```bash
- # Clone & install dependencies
- git clone https://github.com/abrarahmad1510/drivemate-ai.git
- cd drivemate-ai
- pip install -r backend/requirements.txt
- npm install --prefix frontend
-
- # Build & run via Docker Compose
- docker-compose up --build
-
- # Run tests
- pytest --maxfail=1 --disable-warnings -q
- npm test --prefix frontend
- ```
-
- ---
-
- ## Safety & Testing
-
- - **ISO 26262** compliance via SafetyManager  
- - **Unit & Integration**: pytest, unittest, Jest, Playwright  
- - **Hardware-in-the-Loop**: Jenkins pipeline with CAN-bus simulator  
- - **Code Coverage**:  
-   ![Coverage](https://codecov.io/gh/abrarahmad1510/drivemate-ai/branch/main/graph/badge.svg)  
-
- ---
-
- ## License
-
- DriveMate AI is released under the MIT License. See [LICENSE](LICENSE) for details.
-
- ---
-
- *THIS SOFTWARE IS PROVIDED “AS IS,” WITHOUT WARRANTY OF ANY KIND.*
+By using openpilot, you agree to [our Privacy Policy](https://comma.ai/privacy). You understand that use of this software or its related services will generate certain types of user data, which may be logged and stored at the sole discretion of comma. By accepting this agreement, you grant an irrevocable, perpetual, worldwide right to comma for the use of this data.
